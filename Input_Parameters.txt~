@@ -1,0 +1,82 @@
+#  File name for output Cube (inklination_diskscalelength_diskscaleheight_dustscalelength_dustscaleheight_integrationsteps)
+testcube_opt.fits
+# File name for output disk
+testdisk_opt.fits
+#  Inclination of disk
+78
+#  Disk scale length (kpc)
+3.0
+#  Disk scale height (kpc)
+0.8
+#  Dust scale length (kpc)
+3.5
+#  Dust scale height (kpc)
+0.2
+#  Optical thickness of disk
+3.0
+#  Spatial extent of dust
+100.
+#  Bulge to disk ratio
+0.
+#  B0
+1.
+#  Ellipticity of bulge
+0.
+#  Logarithmic binning of disk
+N
+#  Fold disk to make disk symmetric
+N
+# Create a cube
+N
+#  File with rotation curve
+../flatrotationcurve.txt
+# lag in km/s/kpc
+0.
+#  Velocity dispersion (isotropic)(central)
+35.
+#  Velocity dispersion (isotropic)(outer)
+35.
+# Truncation Radius (kpc)
+11.5
+#  Velocity dispersion of bulge
+100.
+#  Starting velocity (km/s)
+-272.09
+#  Step in velocity (km/s)
+11.83
+#  Central velocity of galaxy (km/s)
+1505.89
+#  Test parameter
+N
+#  X lower limit
+-14.272871688
+#  X upper limit
+14.272871688
+#  Z lower limit
+-14.272871688
+#  Z upper limit
+14.272871688
+#  Number of pixels in x
+512
+#  Number of pixels in z
+512
+#  Number of pixels in v
+46
+#  Number of steps in Gauss-legendre integration
+256
+# Inner Hole radius (kpc)
+40.5
+# Outer Hole radius (kpc)
+41.1
+#  Boundary 1
+0.
+#  Boundary 2
+20.
+#  Boundary 3
+0.
+#  Boundary 4
+20.
+# Distance(Mpc)
+18.225
+
+
