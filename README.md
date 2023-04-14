@@ -6,7 +6,13 @@ This code is used in Kamphuis et al. 2007 (https://ui.adsabs.harvard.edu/abs/200
 
 
 The fortran version compiles with
-gfortran -o emissionmodel_fortran EmissionModel.f -L/usr/lib/ -lcfitsio
+gfortran -o Disk_Simulation Exponential_Disk_Simulation.f -L/usr/lib/ -lcfitsio
+
+Or replace /usr/lib/ with whereever your cfitsio is located. The code can then be run with:
+
+./Disk_Simulation Input_Parameters.txt
+
+Where Input_Parameters is the name of the file containing the input parameters (see below).
 
 It compiles without errors and runs but is rather slow
 Seems to produce the correct output though.

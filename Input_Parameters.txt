@@ -24,8 +24,6 @@ N
 N
 # Truncation Radius (kpc)
 11.5
-#  Test parameter
-N
 #  X lower limit
 -14.272871688
 #  X upper limit
@@ -39,7 +37,7 @@ N
 #  Number of pixels in z
 512
 #  Number of steps in Gauss-legendre integration
-256
+16
 # Inner Hole radius (kpc)
 40.5
 # Outer Hole radius (kpc)
@@ -75,4 +73,4 @@ flatrotationcurve.txt
 #  Central velocity of galaxy (km/s)
 1600.
 #  Number of pixels in v
-52.
+52

@@ -42,12 +42,13 @@ C-----------------------------------------------------------------------------
 	blocksize2=1
 	blocksize=1
 	Pi=3.1415926535897D0
-
+	call get_command_argument(1,infile)
+	write (6,*) ' file ',infile, ' detected as input parameter file. '
 c	write (6,*) ' Give file with input parameters '
 c	read (5,99999) infile
-	infile='Input_Parameters.txt'
+c	infile='Input_Parameters.txt'
 99999	format (A)
-	write (6,*) infile
+c	write (6,*) infile
 	open (unit=1,file=infile,status='old')
 c	write (6,*) ' file ',infile, ' opened '
 	read (1,99999) c
@@ -140,8 +141,12 @@ c	write (6,*) ' file ',infile, ' opened '
 		read (1,*) velscale
 		read (1,99999) c
 		read (1,*) cenvel
+		write (6,*) cenvel
 		read (1,99999) c
+		write (6,*) c
 		read (1,*) nv
+		read (1,99999) c
+		write (6,*) nv
 	else
 		write (6,*) 'Not requiring velocity information'
 		outname = 'no_cube.fits'
@@ -333,12 +338,15 @@ c	write (6,*) 'Because nvor=',nvor,'vscale=',vscale
 	write (6,*) 'The dust disk has a scale length ',Rdi ,
      1	'and height', td
 	write (6,*) 'With an optical depth of', tau,
-     1	'and a spatial extend of', rdust
+     1	' and a spatial extend from', boun(1), ' to ', boun(2)
+	write (6,*)  ' and a second part from', boun(3), ' to ', boun(4)
 	write (6,*) 'The bulge to disk ratio is',bdrat,
      1	' with an ellipticity of', bratio
 	write (6,*) 'With a scale length of', b0
 	write (6,*) 'You have logarithmic binning?', Log
 	write (6,*) 'You fold the disk?',Fold
+	write (6,*) 'The Number of steps in Gauss-legendre integration'
+     1	,N
 	if (c_cube) then
 	   write (6,*) 'You have a rotation curve'
 	   do i=1,nr
@@ -350,9 +358,7 @@ c	write (6,*) 'Because nvor=',nvor,'vscale=',vscale
 	   write (6,*) 'And a bulge dispersion of', buldisp
 	   write (6,*) 'And is lagging with ', lag,'km/s/kpc'
 	End if
-	write (6,*) 'The Boundaries are',boun
-	write (6,*) 'The Number of steps in Gauss-legendre integration'
-     1	,N
+
 c	open (unit=77,name='N2048/checkdimake5vel.txt',status='new')
 	incout=Inc
 	nv=nvp2-1
@@ -528,6 +534,16 @@ c	close (unit=88)
 	close (unit=77)
 
 c       Check if the file already exists
+
+	naxes(1)=nx
+	naxes(2)=nz
+	halfax1=(nx/2.)+1
+	halfax2=(nz/2.)+1
+	cdeltscale1=(xs/kpcscale)*60
+	xcrval=0
+	cdeltscale2=(zs/kpcscale)*60
+	ycrval=0
+
 	if (c_cube) then
 
 	   status=0
@@ -554,20 +570,10 @@ C
      1	              outname,status
 C     initialize parameters about the FITS image
 	   simple=.true.
-	   naxes(1)=nx
-	   naxes(2)=nz
+
 	   naxes(3)=nvor
-	   halfax1=(nx/2.)+1
-	   halfax2=(nz/2.)+1
 	   halfax3=(nvor/2.)+1
 
-	   cdeltscale1=(xs/kpcscale)*60
-
-	   xcrval=0
-
-	   cdeltscale2=(zs/kpcscale)*60
-
-	   ycrval=0
 	   intnum=abs(N)
 	   naxis=3
 	   bitpix=-32
