@@ -145,8 +145,6 @@ c	write (6,*) ' file ',infile, ' opened '
 		read (1,99999) c
 		write (6,*) c
 		read (1,*) nv
-		read (1,99999) c
-		write (6,*) nv
 	else
 		write (6,*) 'Not requiring velocity information'
 		outname = 'no_cube.fits'
