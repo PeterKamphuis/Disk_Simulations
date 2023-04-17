@@ -12,7 +12,7 @@ Or replace /usr/lib/ with whereever your cfitsio is located. The code can then b
 
 ./Disk_Simulation Input_Parameters.txt
 
-Where Input_Parameters is the name of the file containing the input parameters (see below).
+Where Input_Parameters.txt is the name of the file containing the input parameters (see below).
 
 It compiles without errors and runs but is rather slow
 Seems to produce the correct output though.
@@ -20,6 +20,8 @@ Seems to produce the correct output though.
 
 The parameter list clearly needs some cleanup though.
 Here is the explanation of the Parameters. These are read in order including the comment lines so the input has to fixed.
+
+```
 
 # File name for output disk
 File name for output disk
@@ -98,3 +100,4 @@ Channel width
 systemic velocity
 #  Number of pixels in v
 size in z, in pixels
+```
