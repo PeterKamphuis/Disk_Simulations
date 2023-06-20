@@ -160,6 +160,17 @@ c	write (6,*) ' file ',infile, ' opened '
 	End if
 	close(1)
 
+C because of dividing by cos(i) the code does not work well above 89.5
+C so abort in that case
+	If (inc.gt.90.) then
+		inc= 180.- inc
+	end if
+
+	If (inc.gt.89.5) then
+		write (6,*) 'Disk_Simulation does not work well above 89.5'
+		write (6,*) 'Your inclination is ', inc, ' we are aborting'
+		stop
+	end if
 C The following parameters were in the original input but not used anywhere
 	rdust = 0.
 C	#  Spatial extent of dust
@@ -364,7 +375,7 @@ c	real*4 Res3(nx,nz,nv)
 	blocksize=1
 	Pi=3.1415926535897D0
 	Inc=Abs(Inc)
-	If (Inc.gt.90.) Inc=90.
+
 	Inc=Inc*Pi/180.D0
 	cosi=cos(Inc)
 	sini=sin(Inc)
