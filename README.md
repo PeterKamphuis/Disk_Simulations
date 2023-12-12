@@ -8,7 +8,7 @@ This code is used in Kamphuis et al. 2007 (https://ui.adsabs.harvard.edu/abs/200
 The fortran version compiles with
 gfortran -o Disk_Simulation Exponential_Disk_Simulation.f -L/usr/lib/ -lcfitsio
 
-Or replace /usr/lib/ with whereever your cfitsio is located. The code can then be run with:
+Or replace /usr/lib/ with where ever your cfitsio is located. The code can then be run with:
 
 ./Disk_Simulation Input_Parameters.txt
 
